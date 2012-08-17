@@ -42,7 +42,13 @@ var ExplorerApp = Backbone.View.extend({
       dataset = localDataset();
     }
     else if (state.dataset || state.url) {
-      dataset = recline.Model.Dataset.restore(state);
+      var datasetInfo = _.extend({
+          url: state.url,
+          backend: state.backend
+        },
+        state.dataset
+      );
+      dataset = new recline.Model.Dataset(datasetInfo);
     }
     if (dataset) {
       this.createExplorer(dataset, state);
