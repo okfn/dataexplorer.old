@@ -255,7 +255,18 @@ function localDataset() {
     {id: 5, date: '2011-06-02', x: 6, y: 12, z: 18, country: 'DE', title: 'sixth', lat:51.04, lon:7.9}
   ];
   var dataset = new recline.Model.Dataset({
-    records: records
+    records: records,
+    fields: [
+      {id: 'id'},
+      {id: 'date', type: 'date'},
+      {id: 'x'},
+      {id: 'y'},
+      {id: 'z'},
+      {id: 'country', 'label': 'Country'},
+      {id: 'title', 'label': 'Title'},
+      {id: 'lat'},
+      {id: 'lon'}
+    ]
   });
   return dataset;
 }
